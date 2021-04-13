@@ -48,42 +48,23 @@ public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearch
             postOrder(root.getRightchild());
         }
     }
-
-
-    public void inOrder(implementation.Node<E> root) {
+    
+    public void reverseInOrder(Node<E> root) {
+        ArrayList<E> l = new ArrayList<>();
         if(root!=null)
         {
             inOrder(root.getLeftchild());
-            System.out.print(root.getData()+ " ");
+            l.add((root.getData());
             inOrder(root.getRightchild());
         }
-    }
 
-
-    public void preOrder(implementation.Node<E> root) {
-        if(root!=null)
-        {
-            System.out.print(root.getData()+" ");
-            preOrder(root.getLeftchild());
-            preOrder(root.getRightchild());
+        Collections.reverse(l);
+        for(E e:l){
+            System.out.print(e+" ");
         }
-    }
-
-
-    public void postOrder(implementation.Node<E> root) {
-        if(root!=null)
-        {
-            System.out.print(root.getData()+" ");
-            postOrder(root.getLeftchild());
-            postOrder(root.getRightchild());
-        }
-    }
-
-
-    public void reverseInOrder(Node<E> node) {
+        System.out.println();
 
     }
-
 
     public void delete(E data) {
 
@@ -98,7 +79,5 @@ public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearch
     }
 
 
-    public int height(Node<E> node) {
-        return 0;
-    }
+    
 }
