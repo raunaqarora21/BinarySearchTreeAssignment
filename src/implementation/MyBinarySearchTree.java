@@ -6,42 +6,98 @@ import myinterface.Node;
 public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearchTreeADT<E> {
     //complete this class
 
-    @Override
+
     public void insert(E data) {
+
+
+
 
     }
 
-    @Override
+
     public boolean search(E searchElement) {
         return false;
     }
 
     @Override
-    public void inOrder(Node<E> node) {
-
+    public void inOrder(Node<E> root) {
+        if(root!=null)
+        {
+            inOrder(root.getLeftchild());
+            System.out.print(root.getData()+ " ");
+            inOrder(root.getRightchild());
+        }
     }
 
     @Override
-    public void preOrder(Node<E> node) {
-
+    public void preOrder(Node<E> root) {
+        if(root!=null)
+        {
+            System.out.print(root.getData()+" ");
+            preOrder(root.getLeftchild());
+            preOrder(root.getRightchild());
+        }
     }
 
     @Override
-    public void postOrder(Node<E> node) {
-
+    public void postOrder(Node<E> root) {
+        if(root!=null)
+        {
+            System.out.print(root.getData()+" ");
+            postOrder(root.getLeftchild());
+            postOrder(root.getRightchild());
+        }
     }
 
-    @Override
+
+    public void inOrder(implementation.Node<E> root) {
+        if(root!=null)
+        {
+            inOrder(root.getLeftchild());
+            System.out.print(root.getData()+ " ");
+            inOrder(root.getRightchild());
+        }
+    }
+
+
+    public void preOrder(implementation.Node<E> root) {
+        if(root!=null)
+        {
+            System.out.print(root.getData()+" ");
+            preOrder(root.getLeftchild());
+            preOrder(root.getRightchild());
+        }
+    }
+
+
+    public void postOrder(implementation.Node<E> root) {
+        if(root!=null)
+        {
+            System.out.print(root.getData()+" ");
+            postOrder(root.getLeftchild());
+            postOrder(root.getRightchild());
+        }
+    }
+
+
     public void reverseInOrder(Node<E> node) {
 
     }
 
-    @Override
+
     public void delete(E data) {
 
     }
 
     @Override
+    public int height(implementation.Node<E> node) {
+        if(node == null){
+            return  -1;
+        }
+        return 1 + Math.max(height(node.getLeftchild()),height(node.getRightchild()));
+    }
+
+
     public int height(Node<E> node) {
         return 0;
     }
