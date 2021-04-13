@@ -7,11 +7,35 @@ public class MyBinarySearchTree<E extends Comparable<E>> implements BinarySearch
     //complete this class
 
 
-    public void insert(E data) {
+   public void insert( E data){
 
-
-
-
+        implementation.Node node = (implementation.Node) new Node(data);
+        if(root == null){
+            root = node;
+        }
+        else{
+            //compare and move to subtree(either left or right)
+            Node temp = root;
+            //keep a parent reference which is used for inserting new child node
+            Node parent = null;
+            while (temp != null){
+                parent = temp;
+                //temp will be either left or right child of root or current temp
+                //on the basis of comparison
+                if(data <= temp.getData()){
+                    temp = temp.getLeftchild();
+                }
+                else{
+                    temp = temp.getRightchild();
+                }
+            }
+            if(data <= parent.getData()){
+                parent.setLeftchild(node);
+            }
+            else{
+                parent.setRightchild(node);
+            }
+        }
     }
 
 
